@@ -26,5 +26,7 @@ final class LibroController extends AbstractController
 
         // Ahora podemos usar estos valores para buscar en el repositorio
         // ...
+
+        return $this->render("libro/busqueda.html.twig", ["libros" => []]);
     }
 }
