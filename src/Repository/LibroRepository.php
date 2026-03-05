@@ -40,4 +40,20 @@ class LibroRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+
+    //En LibroRepository
+public function buscarLibros(?string $titulo, ?int $unidades, ?string $autor): array
+    {
+        $qb = $this->createQueryBuilder('l')
+            ->join('l.autores', 'a');
+           
+
+        if ($titulo) {
+            $qb->andWhere('l.titulo LIKE :titulo')
+                ->setParameter('titulo', '%' . $titulo . '%');
+        }
+
+       //Completa aquí
+    }
 }
